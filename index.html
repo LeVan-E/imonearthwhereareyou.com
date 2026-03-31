@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)file:///C:/Users/levan/Downloads/podcast_website_v2.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I'm On Earth Where Are You | Common Sense Podcast</title>
+<meta name="description" content="A podcast grounded in common sense — real conversations, honest storytelling, and straight talk. New episodes weekly.">
+<link href="./I&#39;m On Earth Where Are You _ Common Sense Podcast_files/css2" rel="stylesheet">
+<style>
+/* ── TOKENS ─────────────────────────────────────────────── */
+:root{
+  --bg:#06080D;
+  --surface:#0C0F18;
+  --card:#111521;
+  --border:rgba(255,255,255,0.07);
+  --gold:#D4AF6A;
+  --gold-lt:rgba(212,175,106,0.12);
+  --orange:#E8622A;
+  --teal:#3FBFB0;
+  --white:#F4F1EB;
+  --muted:#7A7F92;
+  --r: 'Cormorant Garamond', serif;
+  --s: 'Outfit', sans-serif;
+  --b: 'Bebas Neue', sans-serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:var(--s);overflow-x:hidden;cursor:none}
+
+/* ── CURSOR ─────────────────────────────────────────────── */
+#cur{width:8px;height:8px;background:var(--gold);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s}
+#cur-ring{width:34px;height:34px;border:1px solid rgba(212,175,106,.5);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s}
+
+/* ── NAV ─────────────────────────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  padding:1.25rem 5rem;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:background .4s,backdrop-filter .4s;
+}
+nav.scrolled{background:rgba(6,8,13,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{text-decoration:none;display:flex;flex-direction:column;gap:0}
+.nav-logo-main{font-family:var(--b);font-size:1.15rem;letter-spacing:.08em;color:var(--gold);line-height:1}
+.nav-logo-sub{font-family:var(--s);font-size:.55rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+.nav-center{display:flex;gap:2.5rem;list-style:none}
+.nav-center a{font-family:var(--s);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .25s;font-weight:500}
+.nav-center a:hover{color:var(--white)}
+.nav-right{display:flex;gap:.75rem;align-items:center}
+.btn-listen{
+  font-family:var(--s);font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  background:var(--gold);color:var(--bg);padding:.6rem 1.5rem;border:none;cursor:none;
+  transition:background .25s,transform .2s;
+}
+.btn-listen:hover{background:var(--orange);transform:translateY(-1px)}
+.btn-outline{
+  font-family:var(--s);font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  background:transparent;color:var(--white);padding:.6rem 1.2rem;border:1px solid var(--border);cursor:none;
+  transition:border-color .25s,color .25s;text-decoration:none;display:inline-block;
+}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ── HERO ────────────────────────────────────────────────── */
+.hero{
+  min-height:100vh;display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;padding:7rem 5rem 4rem;gap:5rem;
+  position:relative;overflow:hidden;
+}
+.hero-orb{
+  position:absolute;width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,rgba(212,175,106,.08) 0%,transparent 70%);
+  right:-150px;top:50%;transform:translateY(-50%);pointer-events:none;
+}
+.hero-orb2{
+  position:absolute;width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(63,191,176,.05) 0%,transparent 70%);
+  left:30%;top:10%;pointer-events:none;
+}
+.hero-left{position:relative;z-index:1}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:var(--gold-lt);border:1px solid rgba(212,175,106,.2);
+  padding:.4rem 1rem;margin-bottom:2rem;
+}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--orange);animation:blink 1.4s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-badge span{font-family:var(--s);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.hero-title{font-family:var(--b);font-size:clamp(3.5rem,7vw,6rem);letter-spacing:.04em;line-height:.95;margin-bottom:.5rem;color:var(--white)}
+.hero-title .accent{color:var(--gold);display:block}
+.hero-title .ghost{-webkit-text-stroke:1px rgba(255,255,255,.2);color:transparent;display:block}
+.hero-subtitle{font-family:var(--r);font-size:1.4rem;font-style:italic;color:var(--muted);margin-bottom:1.5rem;font-weight:300}
+.hero-desc{font-size:.95rem;color:var(--muted);line-height:1.75;max-width:460px;margin-bottom:2.5rem;font-weight:300}
+.hero-ctas{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;margin-bottom:3rem}
+.cta-primary{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:var(--gold);color:var(--bg);
+  font-family:var(--s);font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:1rem 2rem;text-decoration:none;transition:all .3s;
+}
+.cta-primary:hover{background:var(--orange);transform:translateY(-2px);box-shadow:0 12px 40px rgba(232,98,42,.3)}
+.cta-secondary{
+  display:inline-flex;align-items:center;gap:.5rem;
+  color:var(--white);font-family:var(--s);font-size:.8rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;padding:1rem 0;border-bottom:1px solid var(--border);transition:border-color .25s,color .25s;
+}
+.cta-secondary:hover{border-color:var(--gold);color:var(--gold)}
+.hero-platform-row{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.platform-mini{
+  font-family:var(--s);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);padding:.35rem .8rem;border:1px solid var(--border);
+  text-decoration:none;transition:all .25s;
+}
+.platform-mini:hover{border-color:var(--gold);color:var(--gold)}
+
+/* HERO RIGHT — Featured episode card */
+.hero-right{position:relative;z-index:1}
+.featured-card{
+  background:var(--card);border:1px solid var(--border);
+  position:relative;overflow:hidden;
+}
+.featured-card-img{
+  width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#1a1c28 0%,#0d0f1a 100%);
+  display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;
+}
+.featured-card-img::before{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(212,175,106,.02) 40px,rgba(212,175,106,.02) 80px);
+}
+.ep-cover-art{
+  font-family:var(--b);font-size:5rem;letter-spacing:.1em;color:var(--gold);opacity:.15;user-select:none;z-index:1;
+}
+.featured-play-btn{
+  position:absolute;bottom:1.25rem;right:1.25rem;
+  width:52px;height:52px;background:var(--gold);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .3s;cursor:none;z-index:2;border:none;
+}
+.featured-play-btn:hover{background:var(--orange);transform:scale(1.1)}
+.featured-play-btn svg{width:16px;fill:var(--bg);margin-left:3px}
+.featured-card-body{padding:1.75rem}
+.featured-tag{display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem}
+.tag-pill{
+  font-family:var(--s);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--orange);background:rgba(232,98,42,.1);padding:.3rem .7rem;
+}
+.ep-num-label{font-family:var(--s);font-size:.6rem;letter-spacing:.1em;color:var(--muted)}
+.featured-ep-title{font-family:var(--r);font-size:1.5rem;font-weight:600;line-height:1.25;margin-bottom:.75rem}
+.featured-ep-desc{font-size:.85rem;color:var(--muted);line-height:1.65;margin-bottom:1.25rem;font-weight:300}
+.featured-ep-meta{display:flex;gap:1.5rem}
+.meta-item{display:flex;align-items:center;gap:.4rem;font-family:var(--s);font-size:.7rem;color:var(--muted)}
+.meta-item svg{width:12px;opacity:.6}
+/* Social proof strip */
+.social-proof{margin-top:1.5rem;display:flex;align-items:center;justify-content:space-between;padding-top:1.5rem;border-top:1px solid var(--border)}
+.proof-ratings{display:flex;flex-direction:column;gap:.2rem}
+.stars{color:var(--gold);font-size:.9rem;letter-spacing:2px}
+.proof-text{font-size:.7rem;color:var(--muted)}
+.proof-platforms{display:flex;gap:.5rem}
+.proof-pill{
+  font-family:var(--s);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;
+  padding:.25rem .6rem;border:1px solid var(--border);color:var(--muted);
+}
+
+/* ── MARQUEE ─────────────────────────────────────────────── */
+.marquee-bar{background:var(--gold);padding:.65rem 0;overflow:hidden}
+.marquee-inner{display:inline-flex;white-space:nowrap;animation:marquee 25s linear infinite}
+.marquee-inner span{font-family:var(--b);font-size:.85rem;letter-spacing:.15em;color:var(--bg);padding:0 2.5rem}
+.marquee-inner .sep{opacity:.4;margin:0 .25rem}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── TOPICS / CATEGORY SEARCH (Mel Robbins-inspired) ──────── */
+.topics-section{background:var(--surface);padding:5rem;border-bottom:1px solid var(--border)}
+.topics-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3rem}
+.topics-search{
+  position:relative;max-width:340px;width:100%;
+}
+.topics-search input{
+  width:100%;background:var(--card);border:1px solid var(--border);
+  color:var(--white);font-family:var(--s);font-size:.85rem;
+  padding:.85rem 1rem .85rem 2.8rem;outline:none;
+  transition:border-color .25s;
+}
+.topics-search input:focus{border-color:var(--gold)}
+.topics-search input::placeholder{color:var(--muted)}
+.search-icon{position:absolute;left:.9rem;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
+.topic-grid{display:flex;flex-wrap:wrap;gap:.75rem}
+.topic-chip{
+  display:flex;align-items:center;gap:.5rem;
+  background:var(--card);border:1px solid var(--border);
+  font-family:var(--s);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);padding:.6rem 1.2rem;cursor:none;
+  transition:all .25s;text-decoration:none;
+}
+.topic-chip:hover,.topic-chip.active{background:var(--gold-lt);border-color:rgba(212,175,106,.35);color:var(--gold)}
+.topic-chip-icon{font-size:.9rem}
+
+/* ── EPISODES ────────────────────────────────────────────── */
+.episodes-section{padding:5rem;background:var(--bg)}
+.section-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3rem}
+.section-eyebrow{font-family:var(--s);font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;display:flex;align-items:center;gap:.6rem}
+.section-eyebrow::after{content:'';display:inline-block;width:30px;height:1px;background:var(--gold)}
+.section-title{font-family:var(--r);font-size:clamp(2rem,3.5vw,2.8rem);font-weight:600;line-height:1.1}
+.section-title em{font-style:italic;color:var(--gold)}
+.episode-list{display:flex;flex-direction:column;gap:1px;background:var(--border)}
+.ep-row{
+  background:var(--bg);display:grid;grid-template-columns:80px 1fr auto;
+  align-items:center;gap:2rem;padding:1.75rem 2rem;
+  transition:background .25s;cursor:none;position:relative;
+}
+.ep-row::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:0;
+  background:var(--gold);transition:width .3s;
+}
+.ep-row:hover{background:var(--card)}
+.ep-row:hover::before{width:3px}
+.ep-row-num{font-family:var(--b);font-size:2.2rem;color:rgba(212,175,106,.15);letter-spacing:.05em;-webkit-text-stroke:1px rgba(212,175,106,.2);color:transparent}
+.ep-row-info{}
+.ep-row-cat{font-family:var(--s);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--orange);margin-bottom:.35rem}
+.ep-row-title{font-family:var(--r);font-size:1.15rem;font-weight:600;margin-bottom:.35rem;line-height:1.3}
+.ep-row-desc{font-size:.8rem;color:var(--muted);font-weight:300;line-height:1.5}
+.ep-row-right{display:flex;flex-direction:column;align-items:flex-end;gap:.75rem}
+.ep-row-dur{font-family:var(--s);font-size:.65rem;color:var(--muted);letter-spacing:.05em}
+.ep-row-play{
+  width:40px;height:40px;background:transparent;border:1px solid var(--border);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  transition:all .3s;cursor:none;
+}
+.ep-row:hover .ep-row-play{background:var(--gold);border-color:var(--gold)}
+.ep-row:hover .ep-row-play svg{fill:var(--bg)}
+.ep-row-play svg{width:12px;fill:var(--muted);margin-left:2px;transition:fill .3s}
+.load-more{
+  display:flex;align-items:center;justify-content:center;
+  margin-top:1.5rem;
+}
+.btn-load{
+  font-family:var(--s);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;
+  background:transparent;border:1px solid var(--border);color:var(--muted);
+  padding:.9rem 2.5rem;cursor:none;transition:all .3s;
+}
+.btn-load:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ── ABOUT ───────────────────────────────────────────────── */
+.about-section{background:var(--surface);padding:5rem;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.about-quote{font-family:var(--r);font-size:2.2rem;font-style:italic;line-height:1.35;color:var(--white);font-weight:300;margin-bottom:2rem}
+.about-quote em{color:var(--gold);font-style:italic}
+.about-body{font-size:.95rem;color:var(--muted);line-height:1.8;font-weight:300;margin-bottom:2rem}
+.value-list{display:flex;flex-direction:column;gap:1.25rem}
+.value-item{display:flex;align-items:flex-start;gap:1rem;padding:1.25rem;background:var(--card);border-left:2px solid transparent;transition:border-color .3s}
+.value-item:hover{border-left-color:var(--gold)}
+.value-icon{width:36px;height:36px;background:var(--gold-lt);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.value-text h4{font-family:var(--s);font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.25rem}
+.value-text p{font-size:.82rem;color:var(--muted);line-height:1.55}
+
+/* ── HOST ─────────────────────────────────────────────────── */
+.host-section{background:var(--bg);padding:5rem;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.host-visual{position:relative}
+.host-img-wrap{
+  aspect-ratio:3/4;background:var(--card);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;
+}
+.host-img-wrap::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(6,8,13,.8) 0%,transparent 60%);
+}
+.host-placeholder{font-family:var(--b);font-size:12rem;color:var(--gold);opacity:.08;user-select:none}
+.host-name-overlay{position:absolute;bottom:2rem;left:2rem;z-index:2}
+.host-overlay-name{font-family:var(--b);font-size:2.5rem;letter-spacing:.05em;color:var(--white);line-height:1}
+.host-overlay-role{font-family:var(--s);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:.25rem}
+.host-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:1px}
+.host-stat{background:var(--card);padding:1.25rem;text-align:center}
+.host-stat-num{font-family:var(--b);font-size:2rem;color:var(--gold);letter-spacing:.05em;line-height:1}
+.host-stat-label{font-family:var(--s);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
+.host-bio-label{font-family:var(--s);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem}
+.host-bio-name{font-family:var(--b);font-size:3.5rem;letter-spacing:.04em;line-height:.95;margin-bottom:.25rem}
+.host-bio-name span{display:block;color:var(--gold)}
+.host-bio-title{font-family:var(--r);font-style:italic;font-size:1.1rem;color:var(--muted);margin-bottom:1.5rem}
+.host-bio-text{font-size:.9rem;color:var(--muted);line-height:1.8;font-weight:300;margin-bottom:2rem}
+.host-topics{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+.host-tag{
+  font-family:var(--s);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
+  padding:.35rem .9rem;border:1px solid var(--border);color:var(--muted);
+  transition:all .25s;cursor:none;
+}
+.host-tag:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ── LISTENER REVIEWS (Crime Junkie / DOAC inspired) ──────── */
+.reviews-section{background:var(--surface);padding:5rem;overflow:hidden}
+.reviews-track-wrap{overflow:hidden;margin-top:3rem}
+.reviews-track{display:flex;gap:1.5rem;animation:slide 30s linear infinite}
+.review-card{
+  flex-shrink:0;width:320px;background:var(--card);border:1px solid var(--border);
+  padding:1.75rem;
+}
+.review-stars{color:var(--gold);font-size:.85rem;letter-spacing:2px;margin-bottom:.75rem}
+.review-text{font-family:var(--r);font-size:1rem;font-style:italic;line-height:1.6;color:var(--white);margin-bottom:1rem;font-weight:300}
+.review-author{font-family:var(--s);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.review-platform{font-family:var(--s);font-size:.55rem;letter-spacing:.08em;color:var(--orange)}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── SUBSCRIBE / PLANS ───────────────────────────────────── */
+.plans-section{background:var(--bg);padding:5rem}
+.plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:960px;margin:3rem auto 0}
+.plan{background:var(--card);border:1px solid var(--border);padding:2.5rem;position:relative;transition:transform .35s;cursor:none}
+.plan:hover{transform:translateY(-6px)}
+.plan.featured{border-color:var(--gold);background:linear-gradient(160deg,rgba(212,175,106,.06),var(--card))}
+.plan-badge{
+  position:absolute;top:-1px;right:1.5rem;
+  background:var(--gold);color:var(--bg);
+  font-family:var(--s);font-size:.55rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  padding:.3rem .8rem;
+}
+.plan-tier{font-family:var(--s);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+.plan.featured .plan-tier{color:var(--gold)}
+.plan-price{font-family:var(--b);font-size:3.5rem;letter-spacing:.02em;color:var(--white);line-height:1}
+.plan-price sup{font-family:var(--s);font-size:1.2rem;vertical-align:super;margin-top:.5rem;display:inline-block}
+.plan-cycle{font-family:var(--s);font-size:.65rem;color:var(--muted);margin-bottom:2rem}
+.plan-divider{height:1px;background:var(--border);margin-bottom:1.5rem}
+.plan-features{list-style:none;display:flex;flex-direction:column;gap:.7rem;margin-bottom:2rem}
+.plan-features li{font-size:.82rem;color:var(--muted);display:flex;align-items:flex-start;gap:.6rem;line-height:1.4}
+.plan-features li::before{content:'✓';color:var(--teal);font-size:.75rem;flex-shrink:0;margin-top:.1rem}
+.plan-features li.na{color:rgba(122,127,146,.4);text-decoration:line-through}
+.plan-features li.na::before{content:'–';color:rgba(122,127,146,.3)}
+.plan-cta{
+  width:100%;background:var(--border);color:var(--white);border:1px solid var(--border);
+  font-family:var(--s);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
+  padding:.9rem;cursor:none;transition:all .3s;
+}
+.plan.featured .plan-cta{background:var(--gold);color:var(--bg);border-color:var(--gold)}
+.plan-cta:hover,.plan:not(.featured) .plan-cta:hover{background:var(--orange);border-color:var(--orange);color:var(--bg)}
+
+/* ── LIVE EVENTS (DOAC-inspired) ─────────────────────────── */
+.events-section{background:var(--surface);padding:5rem}
+.events-grid{display:grid;grid-template-columns:2fr 1fr;gap:1.5rem;margin-top:3rem}
+.event-featured{background:var(--card);border:1px solid var(--border);padding:3rem;position:relative;overflow:hidden}
+.event-featured::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--orange))}
+.event-label{font-family:var(--s);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
+.event-label::before{content:'●';animation:blink 1.2s infinite}
+.event-title{font-family:var(--b);font-size:2.5rem;letter-spacing:.04em;line-height:1;margin-bottom:.75rem}
+.event-detail{font-size:.85rem;color:var(--muted);margin-bottom:2rem;font-weight:300;line-height:1.6}
+.event-meta{display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:2rem}
+.event-meta-item{display:flex;flex-direction:column;gap:.2rem}
+.event-meta-label{font-family:var(--s);font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.event-meta-val{font-family:var(--s);font-size:.85rem;font-weight:600;color:var(--white)}
+.event-stack{display:flex;flex-direction:column;gap:1.5rem}
+.event-mini{background:var(--card);border:1px solid var(--border);padding:1.75rem;transition:border-color .3s;cursor:none}
+.event-mini:hover{border-color:rgba(212,175,106,.3)}
+.event-mini-date{font-family:var(--b);font-size:1.5rem;color:var(--gold);letter-spacing:.05em;margin-bottom:.25rem}
+.event-mini-title{font-family:var(--s);font-size:.85rem;font-weight:600;margin-bottom:.25rem}
+.event-mini-loc{font-family:var(--s);font-size:.75rem;color:var(--muted)}
+
+/* ── NEWSLETTER ──────────────────────────────────────────── */
+.newsletter{background:var(--gold);padding:5rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.nl-heading{font-family:var(--b);font-size:clamp(2.5rem,4vw,3.5rem);letter-spacing:.04em;color:var(--bg);line-height:1;margin-bottom:.5rem}
+.nl-sub{font-family:var(--r);font-style:italic;font-size:1.15rem;color:rgba(6,8,13,.55);font-weight:300}
+.nl-count{font-family:var(--s);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(6,8,13,.5);margin-bottom:1.5rem}
+.nl-form{display:flex;flex-direction:column;gap:.75rem}
+.nl-row{display:flex;gap:0}
+.nl-input{
+  flex:1;background:rgba(6,8,13,.12);border:2px solid rgba(6,8,13,.2);border-right:none;
+  color:var(--bg);font-family:var(--s);font-size:.9rem;
+  padding:.9rem 1.25rem;outline:none;
+  transition:border-color .25s;
+}
+.nl-input::placeholder{color:rgba(6,8,13,.4)}
+.nl-input:focus{border-color:var(--bg)}
+.nl-btn{
+  background:var(--bg);border:2px solid var(--bg);color:var(--gold);
+  font-family:var(--s);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:.9rem 1.5rem;cursor:none;transition:all .3s;white-space:nowrap;
+}
+.nl-btn:hover{background:var(--orange);border-color:var(--orange);color:var(--bg)}
+.nl-disclaimer{font-family:var(--s);font-size:.6rem;color:rgba(6,8,13,.45);letter-spacing:.05em}
+
+/* ── SPONSORS ────────────────────────────────────────────── */
+.sponsors{background:var(--surface);padding:3rem 5rem;border-bottom:1px solid var(--border)}
+.sponsors-label{font-family:var(--s);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:2rem}
+.sponsors-row{display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:wrap}
+.sponsor-slot{
+  font-family:var(--b);font-size:1.1rem;letter-spacing:.15em;color:rgba(255,255,255,.15);
+  transition:color .3s;cursor:none;
+}
+.sponsor-slot:hover{color:rgba(255,255,255,.35)}
+
+/* ── FOOTER ──────────────────────────────────────────────── */
+footer{background:var(--surface);border-top:1px solid var(--border);padding:4rem 5rem 2rem}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-brand-name{font-family:var(--b);font-size:1.5rem;letter-spacing:.06em;color:var(--gold);line-height:1}
+.footer-brand-sub{font-family:var(--s);font-size:.55rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+.footer-brand-desc{font-size:.82rem;color:var(--muted);line-height:1.65;font-weight:300;margin-bottom:1.5rem}
+.footer-social{display:flex;gap:.6rem}
+.social-btn{
+  width:34px;height:34px;background:var(--card);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--s);font-size:.55rem;letter-spacing:.05em;color:var(--muted);
+  text-decoration:none;transition:all .3s;cursor:none;
+}
+.social-btn:hover{background:var(--gold);border-color:var(--gold);color:var(--bg)}
+.footer-col-head{font-family:var(--s);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--white);font-weight:600;margin-bottom:1.25rem}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.footer-col ul a{font-size:.82rem;color:var(--muted);text-decoration:none;transition:color .25s}
+.footer-col ul a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:1.75rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-copy{font-family:var(--s);font-size:.62rem;letter-spacing:.08em;color:var(--muted)}
+.footer-legal{display:flex;gap:1.5rem}
+.footer-legal a{font-family:var(--s);font-size:.62rem;color:var(--muted);text-decoration:none;transition:color .25s}
+.footer-legal a:hover{color:var(--gold)}
+
+/* ── UTILS ───────────────────────────────────────────────── */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.in{opacity:1;transform:none}
+
+/* ── RESPONSIVE ──────────────────────────────────────────── */
+@media(max-width:980px){
+  nav{padding:1.25rem 2rem}
+  .nav-center,.nav-right .btn-outline{display:none}
+  .hero,.about-section,.host-section,.newsletter,.events-grid{grid-template-columns:1fr}
+  .hero{padding:6rem 2rem 3rem}
+  .hero-right{display:none}
+  section,.episodes-section,.topics-section,.plans-section,.events-section,.reviews-section,.sponsors,.footer-top{padding:3rem 2rem}
+  .plans-grid{grid-template-columns:1fr;max-width:400px}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .episode-list .ep-row{grid-template-columns:60px 1fr;gap:1rem}
+  .ep-row-right{display:none}
+}
+</style>
+</head>
+<body>
+
+<div id="cur" style="left: 839px; top: 455px;"></div>
+<div id="cur-ring" style="left: 834.593px; top: 435.77px;"></div>
+
+<!-- ██ NAV -->
+<nav id="nav" class="">
+  <a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#" class="nav-logo">
+    <span class="nav-logo-main">I'M ON EARTH</span>
+    <span class="nav-logo-sub">Where Are You · Podcast</span>
+  </a>
+  <ul class="nav-center">
+    <li><a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#episodes">Episodes</a></li>
+    <li><a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#topics">Topics</a></li>
+    <li><a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#about">About</a></li>
+    <li><a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#host">Host</a></li>
+    <li><a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#events">Events</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#subscribe" class="btn-outline">Subscribe</a>
+    <button class="btn-listen">Listen Free</button>
+  </div>
+</nav>
+
+<!-- ██ HERO -->
+<section class="hero">
+  <div class="hero-orb"></div>
+  <div class="hero-orb2"></div>
+  <div class="hero-left">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      <span>New episode · Every Monday</span>
+    </div>
+    <h1 class="hero-title">
+      I'M ON
+      <span class="accent">EARTH</span>
+      <span class="ghost">WHERE ARE</span>
+      YOU
+    </h1>
+    <p class="hero-subtitle">The Common Sense Podcast</p>
+    <p class="hero-desc">Real conversations. Honest storytelling. The kind of straight talk that reminds you the world still makes sense — if you're paying attention.</p>
+    <div class="hero-ctas">
+      <a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#episodes" class="cta-primary">
+        <svg width="13" viewBox="0 0 13 15" fill="currentColor"><path d="M0 0l13 7.5L0 15z"></path></svg>
+        Play Latest Episode
+      </a>
+      <a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#episodes" class="cta-secondary">Browse All Episodes →</a>
+    </div>
+    <div class="hero-platform-row">
+      <a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#" class="platform-mini">Spotify</a>
+      <a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#" class="platform-mini">Apple</a>
+      <a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#" class="platform-mini">YouTube</a>
+      <a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#" class="platform-mini">Amazon</a>
+      <a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#" class="platform-mini">iHeart</a>
+    </div>
+  </div>
+
+  <!-- Featured Episode Card -->
+  <div class="hero-right fade-up in">
+    <div class="featured-card">
+      <div class="featured-card-img">
+        <div class="ep-cover-art">IOE</div>
+        <button class="featured-play-btn" id="heroPlay">
+          <svg viewBox="0 0 13 15"><path d="M0 0l13 7.5L0 15z"></path></svg>
+        </button>
+      </div>
+      <div class="featured-card-body">
+        <div class="featured-tag">
+          <span class="tag-pill">Society</span>
+          <span class="ep-num-label">EP. 047</span>
+        </div>
+        <h2 class="featured-ep-title">Why Nobody Uses Common Sense Anymore</h2>
+        <p class="featured-ep-desc">We unpack the daily moments where logic vanishes — and what that tells us about modern culture, media, and ourselves.</p>
+        <div class="featured-ep-meta">
+          <div class="meta-item">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-.5 14.5v-9l6 4.5-6 4.5z"></path></svg>
+            58 min
+          </div>
+          <div class="meta-item">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"></path></svg>
+            Apr 7, 2025
+          </div>
+        </div>
+        <div class="social-proof">
+          <div class="proof-ratings">
+            <div class="stars">★★★★★</div>
+            <div class="proof-text">4.9 · 2,400+ Ratings</div>
+          </div>
+          <div class="proof-platforms">
+            <span class="proof-pill">Apple #1</span>
+            <span class="proof-pill">Spotify Top 50</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ██ MARQUEE -->
+<div class="marquee-bar">
+  <div class="marquee-inner">
+    <span>Common Sense Conversations <span class="sep">✦</span></span>
+    <span>New Episode Every Monday <span class="sep">✦</span></span>
+    <span>Real Talk — No Spin <span class="sep">✦</span></span>
+    <span>Storytelling That Sticks <span class="sep">✦</span></span>
+    <span>Live Events Coming 2025 <span class="sep">✦</span></span>
+    <span>Premium Access Available <span class="sep">✦</span></span>
+    <span>50K+ Listeners Worldwide <span class="sep">✦</span></span>
+    <span>Common Sense Conversations <span class="sep">✦</span></span>
+    <span>New Episode Every Monday <span class="sep">✦</span></span>
+    <span>Real Talk — No Spin <span class="sep">✦</span></span>
+    <span>Storytelling That Sticks <span class="sep">✦</span></span>
+    <span>Live Events Coming 2025 <span class="sep">✦</span></span>
+    <span>Premium Access Available <span class="sep">✦</span></span>
+    <span>50K+ Listeners Worldwide <span class="sep">✦</span></span>
+  </div>
+</div>
+
+<!-- ██ TOPIC SEARCH — Mel Robbins-inspired -->
+<section class="topics-section" id="topics">
+  <div class="topics-header">
+    <div>
+      <div class="section-eyebrow">Browse by Topic</div>
+      <h2 class="section-title">Find Your <em>Episode</em></h2>
+    </div>
+    <div class="topics-search">
+      <span class="search-icon">
+        <svg width="14" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
+      </span>
+      <input type="text" placeholder="Search episodes..." id="searchInput">
+    </div>
+  </div>
+  <div class="topic-grid" id="topicGrid">
+    <a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#" class="topic-chip active"><span class="topic-chip-icon">🌍</span> All Episodes</a>
+    <a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#" class="topic-chip"><span class="topic-chip-icon">🧠</span> Society</a>
+    <a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#" class="topic-chip"><span class="topic-chip-icon">💰</span> Finance</a>
+    <a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#" class="topic-chip"><span class="topic-chip-icon">❤️</span> Relationships</a>
+    <a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#" class="topic-chip"><span class="topic-chip-icon">🏃</span> Health</a>
+    <a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#" class="topic-chip"><span class="topic-chip-icon">🔥</span> Culture</a>
+    <a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#" class="topic-chip"><span class="topic-chip-icon">🎯</span> Mindset</a>
+    <a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#" class="topic-chip"><span class="topic-chip-icon">🎙️</span> Interviews</a>
+    <a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#" class="topic-chip"><span class="topic-chip-icon">⚡</span> Most Popular</a>
+  </div>
+</section>
+
+<!-- ██ EPISODES — List style (The Daily + DOAC) -->
+<section class="episodes-section" id="episodes">
+  <div class="section-header">
+    <div>
+      <div class="section-eyebrow">Latest Drops</div>
+      <h2 class="section-title">Recent <em>Episodes</em></h2>
+    </div>
+    <a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#" class="btn-outline">All Episodes →</a>
+  </div>
+
+  <div class="episode-list">
+    <div class="ep-row fade-up">
+      <div class="ep-row-num">047</div>
+      <div class="ep-row-info">
+        <div class="ep-row-cat">Society</div>
+        <div class="ep-row-title">Why Nobody Uses Common Sense Anymore</div>
+        <div class="ep-row-desc">We unpack the daily moments where logic goes missing — and what it says about modern culture.</div>
+      </div>
+      <div class="ep-row-right">
+        <span class="ep-row-dur">58 min · Apr 7</span>
+        <div class="ep-row-play"><svg viewBox="0 0 13 15" fill="currentColor"><path d="M0 0l13 7.5L0 15z"></path></svg></div>
+      </div>
+    </div>
+    <div class="ep-row fade-up">
+      <div class="ep-row-num">046</div>
+      <div class="ep-row-info">
+        <div class="ep-row-cat">Finance</div>
+        <div class="ep-row-title">Money Sense: What Schools Never Taught You</div>
+        <div class="ep-row-desc">Plain-English financial literacy — budgeting, saving, and thinking long-term in a short-attention world.</div>
+      </div>
+      <div class="ep-row-right">
+        <span class="ep-row-dur">51 min · Mar 31</span>
+        <div class="ep-row-play"><svg viewBox="0 0 13 15" fill="currentColor"><path d="M0 0l13 7.5L0 15z"></path></svg></div>
+      </div>
+    </div>
+    <div class="ep-row fade-up">
+      <div class="ep-row-num">045</div>
+      <div class="ep-row-info">
+        <div class="ep-row-cat">Relationships</div>
+        <div class="ep-row-title">Boundaries Aren't a Buzzword</div>
+        <div class="ep-row-desc">Moving past the trend to understand what it actually means to protect your energy and mental space.</div>
+      </div>
+      <div class="ep-row-right">
+        <span class="ep-row-dur">44 min · Mar 24</span>
+        <div class="ep-row-play"><svg viewBox="0 0 13 15" fill="currentColor"><path d="M0 0l13 7.5L0 15z"></path></svg></div>
+      </div>
+    </div>
+    <div class="ep-row fade-up">
+      <div class="ep-row-num">044</div>
+      <div class="ep-row-info">
+        <div class="ep-row-cat">Health</div>
+        <div class="ep-row-title">The Wellness Industrial Complex</div>
+        <div class="ep-row-desc">Separating legit health advice from the noise — why common sense is your best supplement.</div>
+      </div>
+      <div class="ep-row-right">
+        <span class="ep-row-dur">62 min · Mar 17</span>
+        <div class="ep-row-play"><svg viewBox="0 0 13 15" fill="currentColor"><path d="M0 0l13 7.5L0 15z"></path></svg></div>
+      </div>
+    </div>
+    <div class="ep-row fade-up">
+      <div class="ep-row-num">043</div>
+      <div class="ep-row-info">
+        <div class="ep-row-cat">Culture</div>
+        <div class="ep-row-title">Is Hustle Culture Actually Hurting Us?</div>
+        <div class="ep-row-desc">A candid look at the glorification of overwork — and what a sensible relationship with productivity looks like.</div>
+      </div>
+      <div class="ep-row-right">
+        <span class="ep-row-dur">49 min · Mar 10</span>
+        <div class="ep-row-play"><svg viewBox="0 0 13 15" fill="currentColor"><path d="M0 0l13 7.5L0 15z"></path></svg></div>
+      </div>
+    </div>
+    <div class="ep-row fade-up">
+      <div class="ep-row-num">042</div>
+      <div class="ep-row-info">
+        <div class="ep-row-cat">Interview</div>
+        <div class="ep-row-title">A Conversation With Someone Who Gets It</div>
+        <div class="ep-row-desc">Our guest this week has lived through enough to speak with real authority — no theory, just perspective.</div>
+      </div>
+      <div class="ep-row-right">
+        <span class="ep-row-dur">71 min · Mar 3</span>
+        <div class="ep-row-play"><svg viewBox="0 0 13 15" fill="currentColor"><path d="M0 0l13 7.5L0 15z"></path></svg></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="load-more"><button class="btn-load">Load More Episodes ↓</button></div>
+</section>
+
+<!-- ██ ABOUT -->
+<section class="about-section" id="about">
+  <div class="fade-up">
+    <div class="section-eyebrow">About The Show</div>
+    <p class="about-quote">"We don't do talking points. We do <em>honest conversations</em> — the kind that make you stop and think."</p>
+    <p class="about-body">I'm On Earth Where Are You is a dynamic podcast dedicated to producing high-quality, engaging, and informative audio content for a diverse audience. Through compelling storytelling, insightful discussions, and candid interviews, we explore what it means to navigate life with your head on straight.</p>
+    <p class="about-body">No agenda. No spin. Just common sense — and the occasional uncomfortable truth.</p>
+    <a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#host" class="cta-secondary">Meet the Host →</a>
+  </div>
+  <div class="fade-up">
+    <div class="value-list">
+      <div class="value-item">
+        <div class="value-icon">🎙️</div>
+        <div class="value-text">
+          <h4>Storytelling</h4>
+          <p>Compelling narratives that connect to real, everyday experience — no fluff.</p>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon">💡</div>
+        <div class="value-text">
+          <h4>Insight</h4>
+          <p>Discussions that challenge, sharpen, and occasionally flip your perspective.</p>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon">🤝</div>
+        <div class="value-text">
+          <h4>Interviews</h4>
+          <p>Voices from every walk of life, speaking plainly — not performing for a camera.</p>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon">🌍</div>
+        <div class="value-text">
+          <h4>Community</h4>
+          <p>A growing audience of grounded, thoughtful listeners who actually engage.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ██ HOST — Steven Bartlett-inspired depth -->
+<section class="host-section" id="host">
+  <div class="host-visual fade-up">
+    <div class="host-img-wrap">
+      <div class="host-placeholder">🎙</div>
+      <div class="host-name-overlay">
+        <div class="host-overlay-name">YOUR HOST</div>
+        <div class="host-overlay-role">Creator &amp; Executive Producer</div>
+      </div>
+    </div>
+    <div class="host-stats">
+      <div class="host-stat">
+        <div class="host-stat-num">200+</div>
+        <div class="host-stat-label">Episodes</div>
+      </div>
+      <div class="host-stat">
+        <div class="host-stat-num">50K+</div>
+        <div class="host-stat-label">Listeners</div>
+      </div>
+      <div class="host-stat">
+        <div class="host-stat-num">4.9</div>
+        <div class="host-stat-label">Avg Rating</div>
+      </div>
+      <div class="host-stat">
+        <div class="host-stat-num">3+</div>
+        <div class="host-stat-label">Yrs Running</div>
+      </div>
+    </div>
+  </div>
+  <div class="fade-up">
+    <div class="host-bio-label">Your Host</div>
+    <div class="host-bio-name">THE VOICE<span>BEHIND IT</span></div>
+    <div class="host-bio-title">Creator, Host &amp; Executive Producer</div>
+    <p class="host-bio-text">Driven by a belief that common sense is the most undervalued currency in modern life, your host brings equal parts curiosity, directness, and empathy to every episode. No agenda. No jargon. Just straight talk that you'll want to share with the person sitting next to you.</p>
+    <p class="host-bio-text">From the corner office to the kitchen table, these are conversations you'll play twice and share with someone who needs to hear it.</p>
+    <div class="host-topics">
+      <span class="host-tag">Common Sense</span>
+      <span class="host-tag">Society</span>
+      <span class="host-tag">Finance</span>
+      <span class="host-tag">Culture</span>
+      <span class="host-tag">Relationships</span>
+      <span class="host-tag">Health &amp; Wellness</span>
+      <span class="host-tag">Mindset</span>
+      <span class="host-tag">Live Events</span>
+    </div>
+    <a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#" class="cta-primary" style="display:inline-flex">
+      <svg width="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"></path></svg>
+      Read Full Bio
+    </a>
+  </div>
+</section>
+
+<!-- ██ LISTENER REVIEWS — Crime Junkie Fan community-inspired -->
+<section class="reviews-section">
+  <div class="section-eyebrow">Community</div>
+  <h2 class="section-title" style="margin-bottom:.5rem">What Listeners <em>Say</em></h2>
+  <p style="font-size:.85rem;color:var(--muted);font-weight:300">4.9 Stars · 2,400+ Reviews on Apple Podcasts &amp; Spotify</p>
+  <div class="reviews-track-wrap">
+    <div class="reviews-track">
+      <!-- set 1 -->
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Finally a podcast that doesn't talk down to you or pretend the world is more complicated than it is. Common sense, delivered with respect."</div>
+        <div class="review-author">Marcus T. · <span class="review-platform">Apple Podcasts</span></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"I've been listening since episode one. This show has the rare ability to make you feel heard and challenged at the same time. Don't sleep on it."</div>
+        <div class="review-author">Danielle R. · <span class="review-platform">Spotify</span></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Whoever is making this show — thank you. It's the antidote to everything overwhelming about the world right now."</div>
+        <div class="review-author">Kevin M. · <span class="review-platform">Apple Podcasts</span></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"I send every episode to at least three people. The finance one literally changed how I think about money. Real, practical, zero fluff."</div>
+        <div class="review-author">Tamara J. · <span class="review-platform">Google Podcasts</span></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"This is what podcasts should be. Not trying to sell me something every five minutes. Just genuine insight and conversation."</div>
+        <div class="review-author">Laila S. · <span class="review-platform">Spotify</span></div>
+      </div>
+      <!-- duplicate for infinite loop -->
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Finally a podcast that doesn't talk down to you or pretend the world is more complicated than it is. Common sense, delivered with respect."</div>
+        <div class="review-author">Marcus T. · <span class="review-platform">Apple Podcasts</span></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"I've been listening since episode one. This show has the rare ability to make you feel heard and challenged at the same time. Don't sleep on it."</div>
+        <div class="review-author">Danielle R. · <span class="review-platform">Spotify</span></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Whoever is making this show — thank you. It's the antidote to everything overwhelming about the world right now."</div>
+        <div class="review-author">Kevin M. · <span class="review-platform">Apple Podcasts</span></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"I send every episode to at least three people. The finance one literally changed how I think about money. Real, practical, zero fluff."</div>
+        <div class="review-author">Tamara J. · <span class="review-platform">Google Podcasts</span></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"This is what podcasts should be. Not trying to sell me something every five minutes. Just genuine insight and conversation."</div>
+        <div class="review-author">Laila S. · <span class="review-platform">Spotify</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ██ LIVE EVENTS — DOAC-inspired -->
+<section class="events-section" id="events">
+  <div class="section-eyebrow">Live</div>
+  <h2 class="section-title">See Us <em>In Person</em></h2>
+  <div class="events-grid">
+    <div class="event-featured fade-up">
+      <div class="event-label">Next Event</div>
+      <div class="event-title">THE COMMON SENSE TOUR 2025</div>
+      <div class="event-detail">An evening of live conversation, audience Q&amp;A, and unfiltered discussion on the topics that matter most. No teleprompters. No filters. Just common sense.</div>
+      <div class="event-meta">
+        <div class="event-meta-item">
+          <span class="event-meta-label">Date</span>
+          <span class="event-meta-val">September 12, 2025</span>
+        </div>
+        <div class="event-meta-item">
+          <span class="event-meta-label">Venue</span>
+          <span class="event-meta-val">TBA — Major US Cities</span>
+        </div>
+        <div class="event-meta-item">
+          <span class="event-meta-label">Format</span>
+          <span class="event-meta-val">Live Recording + Q&amp;A</span>
+        </div>
+      </div>
+      <a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#" class="cta-primary" style="display:inline-flex">Get Notified →</a>
+    </div>
+    <div class="event-stack fade-up">
+      <div class="event-mini">
+        <div class="event-mini-date">SEP 2025</div>
+        <div class="event-mini-title">Chicago Kickoff</div>
+        <div class="event-mini-loc">📍 Chicago, IL — Venue TBA</div>
+      </div>
+      <div class="event-mini">
+        <div class="event-mini-date">OCT 2025</div>
+        <div class="event-mini-title">East Coast Run</div>
+        <div class="event-mini-loc">📍 New York &amp; Atlanta</div>
+      </div>
+      <div class="event-mini">
+        <div class="event-mini-date">NOV 2025</div>
+        <div class="event-mini-title">West Coast Finale</div>
+        <div class="event-mini-loc">📍 Los Angeles, CA</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ██ SUBSCRIBE / PLANS -->
+<section class="plans-section" id="subscribe">
+  <div style="text-align:center">
+    <div class="section-eyebrow" style="justify-content:center">Membership</div>
+    <h2 class="section-title">Pick Your <em>Level</em></h2>
+    <p style="font-size:.9rem;color:var(--muted);margin-top:.5rem;font-weight:300">Support the show — and get more in return.</p>
+  </div>
+  <div class="plans-grid">
+    <div class="plan fade-up">
+      <div class="plan-tier">Listener</div>
+      <div class="plan-price"><sup>$</sup>0</div>
+      <div class="plan-cycle">/ month · always free</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li>Weekly episodes</li>
+        <li>All major platforms</li>
+        <li>Show notes &amp; links</li>
+        <li>Newsletter (weekly)</li>
+        <li class="na">Ad-free listening</li>
+        <li class="na">Bonus content</li>
+        <li class="na">Live event priority</li>
+      </ul>
+      <button class="plan-cta">Start Listening</button>
+    </div>
+    <div class="plan featured fade-up">
+      <div class="plan-badge">Most Popular</div>
+      <div class="plan-tier">Supporter</div>
+      <div class="plan-price"><sup>$</sup>7</div>
+      <div class="plan-cycle">/ month · cancel anytime</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li>Everything in Free</li>
+        <li>Ad-free listening</li>
+        <li>Bonus mini-episodes</li>
+        <li>Early access drops</li>
+        <li>Exclusive Q&amp;A access</li>
+        <li>Private community</li>
+        <li class="na">Live event priority</li>
+      </ul>
+      <button class="plan-cta">Join the Movement</button>
+    </div>
+    <div class="plan fade-up">
+      <div class="plan-tier">Inner Circle</div>
+      <div class="plan-price"><sup>$</sup>19</div>
+      <div class="plan-cycle">/ month · cancel anytime</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li>Everything in Supporter</li>
+        <li>Live event priority access</li>
+        <li>Behind-the-scenes content</li>
+        <li>20% merch discount</li>
+        <li>Monthly host Q&amp;A call</li>
+        <li>Input on future topics</li>
+        <li>Name in episode credits</li>
+      </ul>
+      <button class="plan-cta">Go Inner Circle</button>
+    </div>
+  </div>
+</section>
+
+<!-- ██ SPONSORS -->
+<div class="sponsors">
+  <div class="sponsors-label">Proudly Partnered With</div>
+  <div class="sponsors-row">
+    <div class="sponsor-slot">PARTNER CO.</div>
+    <div class="sponsor-slot">BRAND NAME</div>
+    <div class="sponsor-slot">SPONSOR INC.</div>
+    <div class="sponsor-slot">YOUR BRAND</div>
+    <div class="sponsor-slot">ADVERTISE HERE</div>
+  </div>
+</div>
+
+<!-- ██ NEWSLETTER -->
+<div class="newsletter">
+  <div>
+    <div class="nl-heading">STAY IN<br>THE LOOP.</div>
+    <p class="nl-sub">No spin. No noise. Just the goods.</p>
+  </div>
+  <div>
+    <div class="nl-count">Join 12,000+ subscribers · New dispatch every Monday</div>
+    <div class="nl-form">
+      <div class="nl-row">
+        <input type="email" class="nl-input" placeholder="Your email address">
+        <button class="nl-btn">Subscribe →</button>
+      </div>
+      <div class="nl-disclaimer">No spam, ever. Unsubscribe with one click.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ██ FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">I'M ON EARTH WHERE ARE YOU</div>
+      <div class="footer-brand-sub">Common Sense Podcast</div>
+      <p class="footer-brand-desc">A dynamic podcast dedicated to compelling storytelling, insightful discussions, and the kind of honest conversation the world actually needs. New episodes every Monday.</p>
+      <div class="footer-social">
+        <a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#" class="social-btn">IG</a>
+        <a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#" class="social-btn">TW</a>
+        <a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#" class="social-btn">TK</a>
+        <a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#" class="social-btn">YT</a>
+        <a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#" class="social-btn">FB</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-head">Listen</div>
+      <ul>
+        <li><a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#">Spotify</a></li>
+        <li><a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#">Apple Podcasts</a></li>
+        <li><a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#">YouTube</a></li>
+        <li><a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#">Amazon Music</a></li>
+        <li><a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#">iHeart Radio</a></li>
+        <li><a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#">Google Podcasts</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-head">Show</div>
+      <ul>
+        <li><a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#">All Episodes</a></li>
+        <li><a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#">Topics</a></li>
+        <li><a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#">About</a></li>
+        <li><a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#">Host</a></li>
+        <li><a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#">Live Events</a></li>
+        <li><a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#">Merch</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-head">Connect</div>
+      <ul>
+        <li><a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#">Newsletter</a></li>
+        <li><a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#">Advertise</a></li>
+        <li><a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#">Sponsorships</a></li>
+        <li><a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#">Press Kit</a></li>
+        <li><a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#">Contact</a></li>
+        <li><a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#">Careers</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 I'm On Earth Where Are You · All Rights Reserved</div>
+    <div class="footer-legal">
+      <a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#">Privacy Policy</a>
+      <a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#">Terms of Service</a>
+      <a href="file:///C:/Users/levan/Downloads/podcast_website_v2.html#">Cookie Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── CURSOR
+const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function rAF(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(rAF)})();
+
+// ── NAV SCROLL
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>60));
+
+// ── FADE IN
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('in'),i*80)});
+},{threshold:.12});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+// ── TOPIC CHIPS
+document.querySelectorAll('.topic-chip').forEach(chip=>{
+  chip.addEventListener('click',e=>{
+    e.preventDefault();
+    document.querySelectorAll('.topic-chip').forEach(c=>c.classList.remove('active'));
+    chip.classList.add('active');
+  });
+});
+
+// ── HERO PLAY
+document.getElementById('heroPlay').addEventListener('click',function(){
+  const isPlaying=this.dataset.playing==='1';
+  this.dataset.playing=isPlaying?'0':'1';
+  this.innerHTML=isPlaying
+    ?'<svg viewBox="0 0 13 15" fill="currentColor"><path d="M0 0l13 7.5L0 15z"/></svg>'
+    :'<svg viewBox="0 0 10 14" fill="currentColor"><rect x="0" width="3.5" height="14"/><rect x="6.5" width="3.5" height="14"/></svg>';
+});
+</script>
+
+
+</body></html>
